@@ -39,10 +39,10 @@ function SimpleDialog(props) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align="center"> อายุ:</TableCell>
+            <TableCell align="center"> เพศ:</TableCell>
             <TableCell align="left">
               {" "}
-              {selectedPatient && selectedPatient.age}{" "}
+              {selectedPatient && selectedPatient.gender}{" "}
             </TableCell>
           </TableRow>
           <TableRow>
@@ -75,253 +75,39 @@ function App() {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const bedStatus = [
+  const numsOfBed = 24
+  let patients = [
     {
       id: "B01",
-      avaliable: false,
-      name: "wirapat Prighphet",
-      tel: "0661128527",
-      CMnumber: "CM30386",
-      age: 22,
-      gender: "male",
+      avaliable: true,
+      name: "phawat phutharaporn",
+      tel: "0842318463",
+      CMnumber: "1645912695322",
+      gender: "ชาย",
       admissiondate: "27/2/2022",
     },
     {
       id: "B02",
       avaliable: true,
-      name: "Pakin",
-      tel: "0637187419",
-      CMnumber: "ATK30386",
-      age: 21,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B03",
-      avaliable: false,
-      name: "Tanawat Minesom",
-      tel: "0832685110",
-      CMnumber: "CM19403",
-      age: 20,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B04",
-      avaliable: true,
-      name: "Joshua Johnson",
-      tel: "(272)-640-8604",
-      CMnumber: "CM30386",
-      age: 63,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B05",
-      avaliable: true,
-      name: "Madame Leonora",
-      tel: "075 157 61 81",
-      CMnumber: "CM30386",
-      age: 49,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B06",
-      avaliable: false,
-      name: "Constance Barrett",
-      tel: "0451-718-539",
-      CMnumber: "CM30386",
-      age: 73,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B07",
-      avaliable: true,
-      name: "Ron Weaver",
-      tel: "(926)-864-8063",
-      CMnumber: "CM30386",
-      age: 52,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B08",
-      avaliable: true,
-      name: "Adelina Øvergård",
-      tel: "96265155",
-      CMnumber: "CM30386",
-      age: 26,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B09",
-      avaliable: false,
-      name: "Abdul Stokke",
-      tel: "48827839",
-      CMnumber: "CM30386",
-      age: 54,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B10",
-      avaliable: true,
-      name: "Wade Lane",
-      tel: "0740-139-354",
-      CMnumber: "CM30386",
-      age: 44,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B11",
-      avaliable: true,
-      name: "David Newman",
-      tel: "081-946-1820",
-      CMnumber: "CM30386",
-      age: 77,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B12",
-      avaliable: false,
-      name: "Koray Küçükler",
-      tel: "(956)-652-0115",
-      CMnumber: "CM30386",
-      age: 77,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B13",
-      avaliable: true,
-      name: "Beatrice Pierre",
-      tel: "075 202 81 69",
-      CMnumber: "CM30386",
-      age: 26,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B14",
-      avaliable: false,
-      name: "Mae Young",
-      tel: "(608)-571-1255",
-      CMnumber: "CM30386",
-      age: 61,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B15",
-      avaliable: true,
-      name: "Kelly Ramirez",
-      tel: "0752-498-834",
-      CMnumber: "CM30386",
-      age: 70,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B16",
-      avaliable: false,
-      name: "Alma Mortensen",
-      tel: "63615413",
-      CMnumber: "CM30386",
-      age: 77,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B17",
-      avaliable: true,
-      name: "Vincent Rivera",
-      tel: "(682)-473-7996",
-      CMnumber: "CM30386",
-      age: 46,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B18",
-      avaliable: false,
-      name: "Samuel Schaper",
-      tel: "0173-9320648",
-      CMnumber: "CM30386",
-      age: 55,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B19",
-      avaliable: true,
-      name: "Nieves Ferrer",
-      tel: "625-515-774",
-      CMnumber: "CM30386",
-      age: 65,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B20",
-      avaliable: false,
-      name: "Lydia Carpenter",
-      tel: "(357)-954-4423",
-      CMnumber: "CM30386",
-      age: 65,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B21",
-      avaliable: true,
-      name: "Veronika Engevik",
-      tel: "48211794",
-      CMnumber: "CM30386",
-      age: 50,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B22",
-      avaliable: true,
-      name: "Julian Gutierrez",
-      tel: "662-010-931",
-      CMnumber: "CM30386",
-      age: 24,
-      gender: "male",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B23",
-      avaliable: false,
-      name: "Hailey Novak",
-      tel: "992-542-2708",
-      CMnumber: "CM30386",
-      age: 70,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
-    {
-      id: "B24",
-      avaliable: true,
-      name: "Amy Souza",
-      tel: "(18) 1552-5338",
-      CMnumber: "CM30386",
-      age: 27,
-      gender: "female",
-      admissiondate: "27/2/2022",
-    },
+      name: "เมธา ชัยวุฒิ",
+      tel: "0969219359",
+      CMnumber: "1645953205533",
+      gender: "ชาย",
+      admissiondate: "9/2/2022",
+    }
+
   ];
-  const avaliableBed = bedStatus.filter(
+  const numsOfAvaliableBed = numsOfBed - patients.length
+  for(let i=0; i<numsOfAvaliableBed; i++) {
+    patients.push({
+      id: patients.length + i + 1,
+      avaliable: false
+    })
+  }
+  const avaliableBed = patients.filter(
     (bed) => !bed.avaliable === true
   ).length;
-
+  console.log(patients)
   return (
     <Container
       maxWidth="xl"
@@ -348,7 +134,7 @@ function App() {
           paddingRight: 55,
         }}
       >
-        {bedStatus.map((bed) => (
+        {patients.map((bed, index) => (
           <Grid
             key={bed.id}
             item
@@ -378,7 +164,7 @@ function App() {
                       position: "relative",
                     }}
                   >
-                    {bed.id}
+                    B{index+1}
                   </Typography>
                 </Tooltip>
               </>
@@ -393,7 +179,7 @@ function App() {
                     position: "relative",
                   }}
                 >
-                  {bed.id}
+                  B{index+1}
                 </Typography>
               </>
             )}
@@ -401,7 +187,7 @@ function App() {
         ))}
       </Grid>
       <Typography>
-        Avaliable: {avaliableBed}/{bedStatus.length}
+        Avaliable: {avaliableBed}/{numsOfBed}
       </Typography>
       <SimpleDialog
         selectedPatient={selectedPatient}
